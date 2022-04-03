@@ -24,9 +24,8 @@ void game()
 	array[1] = 15;
 	array[2] = 11;
 	
-	step(array);
-	step(array);
-	step(array);
+	while (array[0] || array[1] || array[2])
+		step(array);
 }
 
 int main() {
