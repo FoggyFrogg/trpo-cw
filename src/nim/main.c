@@ -56,7 +56,7 @@ int getNumbers(int* n, int* count, int* array)
 			}
 		}
 		if (again)
-			printf("Введите правильные значения! (например: 1 12)\n");
+			printf("Введите правильные значения! (например: '1 12')\n");
 	}
 	return 0;
 }
