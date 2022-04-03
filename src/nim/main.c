@@ -1,7 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int getNumbers(int* n, int* count)
+int check_n(int n)
+{
+	if (n >= 0 && n <= 2)
+		return 1;
+	return 0;
+}
+
+int check_count(int count)
+{
+	if (count >= 1)
+		return 1;
+	return 0;
+}
+
+int check_numbers(int n, int count, int* array)
+{
+	if (array[n] >= count)
+		return 1;
+	return 0;
+}
+
+int getNumbers(int* n, int* count, int* array)
 {
 	int again = 1;
 	while (again)
@@ -19,6 +40,21 @@ int getNumbers(int* n, int* count)
 		}
 		else if (code == 2)
 			again = 0;
+		if (again == 0) {
+			if (check_n(*n) == 0) {
+				again = 1;
+			} else {
+				if (check_count(*count) == 0)
+				{
+					again = 1;
+				} else {
+					if (check_numbers(*n, *count, array) == 0)
+					{
+						again = 1;
+					}
+				}
+			}
+		}
 		if (again)
 			printf("Введите правильные значения! (например: 1 12)\n");
 	}
@@ -33,7 +69,7 @@ void step(int* array)
 
 	int n, count;
 	printf("Введите номер кучки и количество спичек:\n");
-	getNumbers(&n, &count);
+	getNumbers(&n, &count, array);
 	printf("Вы ввели: %d %d\n", n, count);
 
 	array[n] -= count;
@@ -55,6 +91,7 @@ void game()
 int main() {
 	system("clear");
 	printf("Игра 'Ним' (три кучки)\n");
+	printf("Нажмите q чтобы выйти.\n");
 	game();
 	return 0;
 }
