@@ -22,6 +22,11 @@ int check_numbers(int n, int count, int* array)
 	return 0;
 }
 
+void checkExit(char* str)
+{
+	if (str[0] == 'q') exit(1);
+}
+	
 int getNumbers(int* n, int* count, int* array)
 {
 	int again = 1;
@@ -29,11 +34,11 @@ int getNumbers(int* n, int* count, int* array)
 	{
 		char str[50];
 		fgets(str, 50, stdin);
-		if (str[0] == 'q') exit(1);
+		checkExit(str);
 		int code = sscanf(str, "%d %d", n, count);
 		if (code == 1) {
 			fgets(str, 50, stdin);
-			if (str[0] == 'q') exit(1);
+			checkExit(str);
 			code = sscanf(str, "%d", count);
 			if (code == 1)
 				again = 0;
@@ -63,7 +68,7 @@ int getNumbers(int* n, int* count, int* array)
 
 void step(int* array)
 {
-	printf("\n*****\n");
+	printf("\n______\n");
 	printf("\nТри кучки:\n");
 	printf("%-10d %-10d %-10d\n", array[0], array[1], array[2]);
 
