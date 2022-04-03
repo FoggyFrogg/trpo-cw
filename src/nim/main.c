@@ -1,6 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int getNumbers(int* n, int* count)
+{
+	int again = 1;
+	while (again)
+	{
+		char str[50];
+		fgets(str, 50, stdin);
+		if (str[0] == 'q') exit(1);
+		int code = sscanf(str, "%d %d", n, count);
+		if (code == 1) {
+			fgets(str, 50, stdin);
+			if (str[0] == 'q') exit(1);
+			code = sscanf(str, "%d", count);
+			if (code == 1)
+				again = 0;
+		}
+		else if (code == 2)
+			again = 0;
+		if (again)
+			printf("Введите правильные значения! (например: 1 12)\n");
+	}
+	return 0;
+}
+
 void step(int* array)
 {
 	printf("\n*****\n");
@@ -9,7 +33,7 @@ void step(int* array)
 
 	int n, count;
 	printf("Введите номер кучки и количество спичек:\n");
-	scanf("%d %d", &n, &count);
+	getNumbers(&n, &count);
 	printf("Вы ввели: %d %d\n", n, count);
 
 	array[n] -= count;
