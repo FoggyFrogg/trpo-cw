@@ -26,5 +26,6 @@ int check_numbers(int n, int count, int* array)
 
 void checkExit(char* str)
 {
-    if (str[0] == 'q') exit(1);
+    if (str[0] == 'q')
+        exit(1);
 }
