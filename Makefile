@@ -18,7 +18,7 @@ APP_SRC = $(shell find $(SRC_DIR)/$(APPNAME) -name '*.c')
 APP_OBJ = $(APP_SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/$(SRC_DIR)/%.o)
 
 LIB_SRC = $(shell find $(SRC_DIR)/$(LIBNAME) -name '*.c')
-LIB_OBJ = $(LIB_SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/$(SRC_DIR)/%.o)
+LIB_OBJ = $(LIB_SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/$(SRC_DIR)/%.o)
 
 DEPS = $(APP_OBJ:.o=.d) $(LIB_OBJ:.o=.d)
 
