@@ -1,5 +1,5 @@
-#include <libnim/gameFuncs.h>
 #include <libnim/checks.h>
+#include <libnim/gameFuncs.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,8 +7,7 @@
 int getNumbers(int* n, int* count, int* array)
 {
     int again = 1;
-    while (again)
-    {
+    while (again) {
         char str[50];
         fgets(str, 50, stdin);
         checkExit(str);
@@ -19,20 +18,17 @@ int getNumbers(int* n, int* count, int* array)
             code = sscanf(str, "%d", count);
             if (code == 1)
                 again = 0;
-        }
-        else if (code == 2)
+        } else if (code == 2)
             again = 0;
         if (again == 0) {
-			*n = *n-1;
+            *n = *n - 1;
             if (check_n(*n) == 0) {
                 again = 1;
             } else {
-                if (check_count(*count) == 0)
-                {
+                if (check_count(*count) == 0) {
                     again = 1;
                 } else {
-                    if (check_numbers(*n, *count, array) == 0)
-                    {
+                    if (check_numbers(*n, *count, array) == 0) {
                         again = 1;
                     }
                 }
