@@ -2,4 +2,5 @@
 *.o
 *.d
 bin/nim
+bin/nim-test
 *.a
