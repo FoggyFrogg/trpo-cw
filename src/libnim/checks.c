@@ -29,3 +29,8 @@ void checkExit(char* str)
     if (str[0] == 'q')
         exit(1);
 }
+
+int isWin(int* array)
+{
+    return !(array[0] || array[1] || array[2]);
+}
