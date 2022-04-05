@@ -66,7 +66,7 @@ void step(int* array)
 void printWin(int player)
 {
     if (player)
-        printf("Вы выиграли!\n");
+        printf("Вы проиграли!\n");
     else
         printf("Вы выиграли!\n");
 }
