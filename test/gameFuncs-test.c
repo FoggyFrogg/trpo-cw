@@ -6,9 +6,8 @@
 
 CTEST(suite_gameFuncs, stepComputer)
 {
-	int arr[3] = {0, 1, 0};
+    int arr[3] = {0, 1, 0};
 
-	stepComputer(arr);
-	ASSERT_EQUAL(0, arr[1]);
+    stepComputer(arr);
+    ASSERT_EQUAL(0, arr[1]);
 }
-
