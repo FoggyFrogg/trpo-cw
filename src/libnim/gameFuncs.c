@@ -49,43 +49,44 @@ void step(int* array)
     int n, count;
     printf("Введите номер кучки и количество спичек:\n");
     getNumbers(&n, &count, array);
-    printf("Вы ввели: %d %d\n", n+1, count);
+    printf("Вы ввели: %d %d\n", n + 1, count);
 
     array[n] -= count;
     printf("\nРезультат:\n");
     printf("%-10d %-10d %-10d\n", array[0], array[1], array[2]);
 
-	if (isWin(array)) {
-		printWin(0);
-		exit(EXIT_SUCCESS);
-	}
+    if (isWin(array)) {
+        printWin(0);
+        exit(EXIT_SUCCESS);
+    }
 
-	stepComputer(array);
+    stepComputer(array);
 }
 
 void printWin(int player)
 {
-	if (player)
-		printf("Вы выиграли!\n");
-	else
-		printf("Вы выиграли!\n");
+    if (player)
+        printf("Вы выиграли!\n");
+    else
+        printf("Вы выиграли!\n");
 }
 
-void stepComputer(int* array) {
-	int n = rand() % 3;
-	while (array[n] <= 0)
-		n = rand() % 3;
-	int count = (rand() % array[n]) + 1;
+void stepComputer(int* array)
+{
+    int n = rand() % 3;
+    while (array[n] <= 0)
+        n = rand() % 3;
+    int count = (rand() % array[n]) + 1;
     printf("\n______\n");
     printf("\n\tТри кучки:\n");
     printf("\t%-10d %-10d %-10d\n", array[0], array[1], array[2]);
-    printf("\tКомпьютер ввёл: %d %d\n", n+1, count);
+    printf("\tКомпьютер ввёл: %d %d\n", n + 1, count);
     array[n] -= count;
     printf("\n\tРезультат:\n");
     printf("\t%-10d %-10d %-10d\n", array[0], array[1], array[2]);
 
-	if (isWin(array)) {
-		printWin(1);
-		exit(EXIT_SUCCESS);
-	}
+    if (isWin(array)) {
+        printWin(1);
+        exit(EXIT_SUCCESS);
+    }
 }

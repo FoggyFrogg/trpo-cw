@@ -32,5 +32,5 @@ void checkExit(char* str)
 
 int isWin(int* array)
 {
-	return !(array[0] || array[1] || array[2]);
+    return !(array[0] || array[1] || array[2]);
 }
